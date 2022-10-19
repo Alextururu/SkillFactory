@@ -1,8 +1,8 @@
 ﻿using System;
 
-class MainClass
+class EchoClass
 {
-	public static void Main(string[] args)
+	public static void MainEcho()
 	{
 		Console.WriteLine("Напишите что-то");
 		var str = Console.ReadLine();
@@ -10,9 +10,9 @@ class MainClass
 		Console.WriteLine("Укажите глубину эха");
 		var deep = int.Parse(Console.ReadLine());
 
-		Echo(str, deep);
+		//Echo(str, deep);
+		Console.WriteLine(Factorial(20));
 
-		Console.ReadKey();
 	}
 
 	static void Echo(string phrase, int deep)
@@ -22,10 +22,23 @@ class MainClass
 		{
 			modif = modif.Remove(0, 2);
 		}
+		Console.BackgroundColor = (ConsoleColor)deep;
 		Console.WriteLine("..."+modif);
 		if (deep > 1)
 		{
 			Echo(modif, deep - 1);
+		}
+	}
+
+	static decimal Factorial(decimal x)
+	{
+		if (x == 0)
+		{
+			return 1;
+		}
+		else
+		{
+			return x * Factorial(x - 1);
 		}
 	}
 }
